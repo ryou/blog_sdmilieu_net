@@ -8,8 +8,8 @@ $currentDir = dirname(__FILE__);
 
 // pullを先にする
 {
-  exec("cd " . $currentDir . ";");
-  exec("git pull origin master;");
+  echo exec("cd " . $currentDir . ";");
+  echo exec("git pull origin master;");
 }
 
 {
