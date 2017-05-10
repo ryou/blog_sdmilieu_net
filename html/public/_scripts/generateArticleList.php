@@ -118,6 +118,13 @@ $currentDir = dirname(__FILE__);
       }
     }
 
+    // 日付降順にソート
+    usort($articleDatas, function($a, $b) {
+      return $b["created_at"] - $a["created_at"];
+    });
+
+    var_dump($articleDatas);
+
     return $articleDatas;
   }
 
