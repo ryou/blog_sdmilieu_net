@@ -31,10 +31,16 @@ module rule
     font-weight: bold;
   }
   .m-article_content {
+    // ベースとなる要素間マージン
+    h1, h2, h3, h4, p, pre, table, ul, ol, blockquote {
+      margin: 1.5rem 0;
+    }
+
     h1 {
       font-size: 2.5rem;
       font-weight: bold;
-      margin-bottom: 3.0rem;
+      margin-top: 0;
+      margin-bottom: 3.5rem;
     }
     h2 {
       font-size: 2.0rem;
@@ -42,18 +48,29 @@ module rule
       border-left: 10px solid $txtColor;
       padding-left: 1rem;
       line-height: 1.3;
-      margin: 2.0rem 0 1.0rem;
+      margin-top: 3.0rem;
     }
     h3 {
       font-size: 1.8rem;
       font-weight: bold;
       border-bottom: 1px solid #999;
+      margin-top: 2.5rem;
+    }
+    h4 {
+      font-weight: bold;
+      margin-top: 2.0rem;
     }
     a {
       @include linkTxt01;
     }
-    p, pre, table, ul, ol, blockquote {
-      margin: 1.0rem 0;
+    ul {
+      li {
+        list-style: disc;
+        margin-left: 1em;
+      }
+      ul {
+        margin: 0;
+      }
     }
     pre {
       border: 1px solid #999;
@@ -76,12 +93,13 @@ module rule
   .m-article {
     display: table;
     width: 100%;
+    table-layout: fixed;
     .m-article_date {
       display: table-cell;
       vertical-align: top;
       width: 150px;
     }
-    .m-article_content {
+    .m-article_main {
       display: table-cell;
       vertical-align: top;
     }
