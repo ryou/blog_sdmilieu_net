@@ -92,14 +92,13 @@
     data: function() {
       return {
         content: '',
-        date: ''
+        date: '',
+        meta: null
       };
     },
+    props: ['articles'],
     template: '#posts-component-template',
     computed: {
-      date: function() {
-        return (this.$route.params.perma_link.split('__'))[0];
-      },
       title: function() {
         return (this.$route.params.perma_link.split('__'))[1];
       },
@@ -113,9 +112,14 @@
       }
     },
     mounted: function() {
-      document.title = this.title;
-
       var self = this;
+      this.articles.forEach(function(e, i, a) {
+        if (e.perma_link === self.$route.params.perma_link) {
+          self.meta = e;
+          document.title = self.meta.title;
+        }
+      });
+
       $.ajax({
         type: 'GET',
         url: './README.md',
@@ -166,6 +170,7 @@
           json.data.forEach(function(e, i, a) {
             var obj = {
               url: '/posts/' + e.perma_link + '/',
+              perma_link: e.perma_link,
               date: e.created_at,
               title: e.title,
               excerpt: e.excerpt
