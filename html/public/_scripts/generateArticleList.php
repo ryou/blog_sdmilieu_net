@@ -4,8 +4,15 @@ require_once "./libs/Parsedown.php";
 
 mb_internal_encoding("UTF-8");
 
+$currentDir = dirname(__FILE__);
+
+// pullを先にする
 {
-  $currentDir = dirname(__FILE__);
+  exec("cd " . $currentDir . ";");
+  exec("git pull origin master;");
+}
+
+{
   $postsDir = $currentDir . "/../posts";
 
   /***********************************************************************
