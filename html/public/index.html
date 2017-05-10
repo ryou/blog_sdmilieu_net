@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+
+  <link rel="stylesheet" href="/assets/css/base.css">
+  <link rel="stylesheet" href="/assets/css/common.css">
+</head>
+<body>
+
+  <div class="l-container">
+    <div id="app">
+      <header class="l-header">
+        <p class="m-logo"><router-link class="m-logo_txt" to="/">技術メモ</router-link></p>
+      </header>
+      <!-- /.l-header -->
+      <transition name="fade" mode="out-in">
+        <router-view :articles="articles"></router-view>
+      </transition>
+
+
+      <footer class="l-footer"></footer>
+    </div>
+  </div>
+  <!-- /.l-container -->
+
+  <script type="text/x-template" id="link-component-template">
+    <div class="m-articleList_itemContainer">
+      <p class="m-articleList_itemDate">{{ date.getFullYear() }}.{{ date.getMonth() + 1 }}.{{ date.getDate() }}</p>
+      <div class="m-articleList_itemMain">
+        <p class="m-articleList_itemTit">{{ article.title }}</p>
+        <p class="m-articleList_itemExcerpt">{{ article.excerpt }}</p>
+        <div class="m-articleList_itemLink">
+          <router-link class="m-btn01 m-btn01-spFull" :to="article.url">続きを読む</router-link>
+        </div>
+      </div>
+    </div>
+  </script>
+  <script type="text/x-template" id="index-component-template">
+    <div>
+      <ul class="m-articleList">
+        <li class="m-articleList_item" v-for="article in dispArticles">
+          <link-component :article="article"></link-component>
+        </li>
+      </ul>
+      <pager-component :current="currentPage" :total="totalPage" @prev="prevPage" @next="nextPage"></pager-component>
+    </div>
+  </script>
+  <script type="text/x-template" id="posts-component-template">
+    <div class="m-article">
+      <p class="m-article_date">{{ dateObj.getFullYear() }}.{{ dateObj.getMonth() + 1 }}.{{ dateObj.getDate() }}</p>
+      <div class="m-article_main">
+        <div class="m-article_content" v-html="content"></div>
+      </div>
+      <!-- /.m-article_main -->
+    </div>
+  </script>
+  <script type="text/x-template" id="pager-component-template">
+    <ul>
+      <li v-if="prevIsExist"><router-link :to="prevUrl">Prev</router-link></li>
+      <li v-if="nextIsExist"><router-link :to="nextUrl">Next</router-link></li>
+    </ul>
+  </script>
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+  <script src="/assets/js/marked.min.js"></script>
+  <script src="/assets/js/main.js"></script>
+
+</body>
+</html>
