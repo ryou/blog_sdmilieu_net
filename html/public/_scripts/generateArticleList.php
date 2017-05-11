@@ -4,6 +4,8 @@ require_once "./libs/Parsedown.php";
 
 mb_internal_encoding("UTF-8");
 
+const EXCERPT_LENGTH = 100;
+
 $currentDir = dirname(__FILE__);
 
 // pullを先にする
@@ -78,7 +80,8 @@ $currentDir = dirname(__FILE__);
         $tagRemovedStr = strip_tags($html);
         $tagRemovedStr = str_replace(["\r\n", "\r", "\n"], "", $tagRemovedStr);
 
-        $info["excerpt"] = mb_substr($tagRemovedStr, 0, 100);
+        $info["excerpt"] = mb_substr($tagRemovedStr, 0, EXCERPT_LENGTH);
+        if (mb_strlen($tagRemovedStr) > EXCERPT_LENGTH) $info["excerpt"] .= "...";
       }
 
       return $info;
