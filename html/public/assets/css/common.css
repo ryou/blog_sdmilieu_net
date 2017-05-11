@@ -37,7 +37,7 @@ layout rule
 ----------------------------------------------------------*/
 .l-footer
 {
-    padding: 1.0rem 0;
+    padding: 5.0rem 0 3.0rem;
 }
 
 /***********************************************************************
@@ -62,20 +62,20 @@ utility rule
 
 /* linkTxt01
 ----------------------------------------------------------*/
-.u-linkTxt01
+a.u-linkTxt01
 {
     text-decoration: underline; 
 
     color: #33a6b8;
 }
-.u-linkTxt01:hover
+a.u-linkTxt01:hover
 {
     text-decoration: none;
 }
 
 /* linkTxt02
 ----------------------------------------------------------*/
-.u-linkTxt02:hover
+a.u-linkTxt02:hover
 {
     color: #33a6b8;
     border-color: #33a6b8;
@@ -111,6 +111,15 @@ module rule
         text-align: center;
     }
 }
+/* .m-footer
+----------------------------------------------------------*/
+.m-footer .m-footer_github
+{
+    font-size: 1.2rem; 
+
+    text-align: center;
+}
+
 /* .m-article
 ----------------------------------------------------------*/
 .m-article .m-article_date
