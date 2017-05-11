@@ -12,14 +12,9 @@ vagrant up
 // 仮想マシンログイン
 vagrant ssh
 
-// composerでパッケージの取得
-composer install
-
-// 環境設定ファイルを作成
-cp .env.example .env
-
-// .envファイルにキーを生成
-php artisan key:generate
+// articles.jsonの生成
+cd html/public/_scripts
+php generateArticleList.php
 ```
 
 ホスト端末での作業
