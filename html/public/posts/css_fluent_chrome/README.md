@@ -51,3 +51,14 @@ FluentDesignSystemのサイトでは、root要素のfont-sizeにvwが使われ�
 ## まとめ
 
 font-sizeに関してはChromeが気を利かして最小フォントサイズ適用前の値を元に計算しているのに、margin/paddingに関してはそうなってないのは恐らく実装ミスかなという感じなので、Chromeのバージョンアップで早い内に修正されるのではないでしょうか。（root要素のfont-sizeに10px未満の値を指定した上でmargin/paddingにremを使うと言った状況が無かったので全く気づきませんでした。）
+
+## 追記（2017.5.13）
+
+どうも2年程前に既にAppleのヘルプページで同じ原因と思われる現象が発生していた模様。
+
+[ChromeでAppleの公式ヘルプページの表示が崩れる問題発生中](http://did2memo.net/2015/09/18/chrome-apple-help-page-rem-bug/)
+
+
+[rem Hack](https://butchi.github.io/remhack/)
+
+root要素のfont-sizeが10px未満にならないよう気をつければ回避出来るとはいえ、仕様外の挙動っぽいので出来れば直して欲しい所。
