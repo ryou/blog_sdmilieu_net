@@ -13,7 +13,7 @@
 ```
 <label class="m-iosToggle">
   <input type="checkbox" class="m-iosToggle_input js-checkbox">
-  <span class="m-iosToggle_btn"><span class="m-iosToggle_circle"></span></span>
+  <span class="m-iosToggle_btn"></span>
 </label>
 ```
 
@@ -37,7 +37,8 @@
   transition: .2s;
   box-sizing: border-box;
 }
-.m-iosToggle .m-iosToggle_circle {
+.m-iosToggle .m-iosToggle_btn:before {
+  content: '';
   box-sizing: border-box;
   position: absolute;
   top: 2px;
@@ -53,7 +54,7 @@
   border-color: #1abc9c;
   background: #1abc9c;
 }
-.m-iosToggle .m-iosToggle_input:checked + .m-iosToggle_btn .m-iosToggle_circle {
+.m-iosToggle .m-iosToggle_input:checked + .m-iosToggle_btn:before {
   left: 21px;
 }
 ```
