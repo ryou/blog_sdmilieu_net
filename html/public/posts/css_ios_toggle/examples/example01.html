@@ -30,7 +30,8 @@
       transition: .2s;
       box-sizing: border-box;
     }
-    .m-iosToggle .m-iosToggle_circle {
+    .m-iosToggle .m-iosToggle_btn:before {
+      content: '';
       box-sizing: border-box;
       position: absolute;
       top: 2px;
@@ -46,18 +47,16 @@
       border-color: #1abc9c;
       background: #1abc9c;
     }
-    .m-iosToggle .m-iosToggle_input:checked + .m-iosToggle_btn .m-iosToggle_circle {
+    .m-iosToggle .m-iosToggle_input:checked + .m-iosToggle_btn:before {
       left: 21px;
     }
   </style>
 </head>
 <body>
-  <form action="">
-    <label class="m-iosToggle">
-      <input type="checkbox" class="m-iosToggle_input js-checkbox">
-      <span class="m-iosToggle_btn"><span class="m-iosToggle_circle"></span></span>
-    </label>
-  </form>
+  <label class="m-iosToggle">
+    <input type="checkbox" class="m-iosToggle_input js-checkbox">
+    <span class="m-iosToggle_btn"></span>
+  </label>
   <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
   <script>
     $(function() {
