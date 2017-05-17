@@ -4,6 +4,8 @@
 
 ## cheerio-httpcli
 
+npm: [cheerio-httpcli](https://www.npmjs.com/package/cheerio-httpcli)
+
 取得したHTMLを、jQueryライクに探索することが出来る。
 
 スクレイピングする際に最高。
