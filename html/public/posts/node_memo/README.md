@@ -17,3 +17,9 @@ browserifyなら
 ```
 
 で実行できることを確認出来る。
+
+## 「npm run」の&と&&の違い
+
+[Grunt/Gulpで憔悴したおっさんの話 - MOL](https://t32k.me/mol/log/npm-run-script/)
+
+&&は直列、&は並列
