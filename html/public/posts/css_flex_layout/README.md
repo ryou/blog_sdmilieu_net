@@ -44,3 +44,10 @@ align-itemsにstretchを使えばフレックスアイテムの高さを行毎�
 `align-items: stretch`が便利な例。
 
 あと`margin-x: auto`も便利。
+
+
+### 上下中央配置
+
+[Demo](./examples/center.html)
+
+上下中央配置だけだとtableレイアウトでも可能だけど、例みたいに「画像を中央配置して、ビューポートサイズに応じて縮める（拡大はしない）」みたいな要件の場合はFlexboxじゃないと無理。
