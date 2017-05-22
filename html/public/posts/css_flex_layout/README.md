@@ -1,4 +1,14 @@
-# [CSS]Flexboxに関してのメモ
+# [CSS]FlexBoxに関してのメモ
+
+FlexBoxがいい加減積極的に使うべき物になってるので、まとめておく。
+
+## 不具合
+
+[philipwalton/flexbugs: A community-curated list of flexbox issues and cross-browser workarounds for them.](https://github.com/philipwalton/flexbugs)
+
+ここにまとまってる。
+
+これはまた別にまとめたい。
 
 ## プロパティ
 
@@ -26,13 +36,17 @@
 
 詳しくはCodeGridを購読して見ろ。
 
-## FlexboxじゃないとHTML/CSSのみで出来ないレイアウト
+## FlexBoxじゃないとHTML/CSSのみで出来ないレイアウト
+
+FlexBoxは微妙にややこしいので、従来の方法で問題なくコーディング出来るのであればそっちを優先したい。
+
+そのため、「FlexBoxじゃないと実現できない or FlexBox使ったほうが簡潔になる」パターンを以下にまとめる。
 
 ### 並べた要素を行毎に高さを揃える
 
 [Demo](./examples/align_height.html)
 
-上記のようなレイアウトは、Flexboxを使えない場合はJavaScriptを使わないと実現できない。
+上記のようなレイアウトは、FlexBoxを使えない場合はJavaScriptを使わないと実現できない。
 
 #### 前提知識
 
@@ -40,7 +54,7 @@ align-itemsにstretchを使えばフレックスアイテムの高さを行毎�
 
 その場合は以下のようにする。
 
-[flexをつかって配置したモジュールの高さを、レイアウトの高さに揃える](./examples/stretch_height_auto_container.html)
+[flexをつかって配置したモジュールの高さを、レイアウトの高さに揃えるデモ](./examples/stretch_height_auto_container.html)
 
 
 
@@ -57,10 +71,10 @@ align-itemsにstretchを使えばフレックスアイテムの高さを行毎�
 + テキストは縦方向中央揃え
 + スマホレイアウトは縦に積むレイアウト
 
-個々の要素だとFlexboxがなくてもいけるんだけど、全部そろうとtableレイアウト+JavaScriptじゃないと無理になる。
+個々の要素だとFlexBoxがなくてもいけるんだけど、全部そろうとtableレイアウト+JavaScriptじゃないと無理になる。
 
 
-## Flexboxだと簡単に出来ること
+## FlexBoxだと簡単に出来ること
 
 ### 横並びナビのリンクの高さを揃える / 横並びナビの一部を右端に寄せる
 
@@ -75,4 +89,4 @@ align-itemsにstretchを使えばフレックスアイテムの高さを行毎�
 
 [Demo](./examples/center.html)
 
-上下中央配置だけだとtableレイアウトでも可能だけど、例みたいに「画像を中央配置して、ビューポートサイズに応じて縮める（拡大はしない）」みたいな要件の場合はFlexboxじゃないと無理。（tableの仕様上、ビューポートを縦方向に縮めても、画像が縮小しない）
+上下中央配置だけだとtableレイアウトでも可能だけど、例みたいに「画像を中央配置して、ビューポートサイズに応じて縮める（拡大はしない）」みたいな要件の場合はFlexBoxじゃないと無理。（tableの仕様上、ビューポートを縦方向に縮めても、画像が縮小しない）
