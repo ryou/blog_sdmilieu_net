@@ -1,4 +1,16 @@
-# express-session
+# express-session README日本語訳
+
+**翻訳途中**
+
+express-sessionの設定項目が意味不明で日本語情報もほとんど見当たらなかったので、自身の理解のために雑に翻訳。英文そのままの所は未翻訳。
+
+翻訳信頼性は限りなく0に等しいので参考にしないほうが良い。
+
+自分自身が追記した注釈に関しては「独自追記」と記載。
+
+## 翻訳元
+
+[GitHub - expressjs/session: Simple session middleware for Express](https://github.com/expressjs/session)(2017.05.26時点)
 
 ## インストール
 
@@ -49,7 +61,7 @@ var session = require('express-session')
 
 以下のオプションはこのオブジェクトに設定できるものです。
 
-**一般的なCookieのOptionなので省略**
+**独自追記：一般的なCookieのOptionなので省略**
 
 ##### genid
 
@@ -112,3 +124,38 @@ How do I know if this is necessary for my store? The best way to know is to chec
 **独自追記:**通常はクッキーの期限が切れない限り新しくレスポンスにクッキーを付与しないんだけど、このオプションをtrueすると毎回Set-Cookieされていており、またそれのExpireはmaxAgeを元に計算された新しい期限が設定されていた。
 
 **NOTE:**このオプションが`true`に設定されており、`saveUninitialized`オプションが`false`に設定されているなら、he cookie will not be set on a response with an uninitialized session.
+
+
+
+##### saveUninitialized
+
+Forces a session that is "uninitialized" to be saved to the store. A session is uninitialized when it is new but not modified. Choosing false is useful for implementing login sessions, reducing server storage usage, or complying with laws that require permission before setting a cookie. Choosing false will also help with race conditions where a client makes multiple parallel requests without a session.
+
+The default value is true, but using the default has been deprecated, as the default will change in the future. Please research into this setting and choose what is appropriate to your use-case.
+
+Note if you are using Session in conjunction with PassportJS, Passport will add an empty Passport object to the session for use after a user is authenticated, which will be treated as a modification to the session, causing it to be saved. This has been fixed in PassportJS 0.3.0
+
+
+##### secret
+
+**必須設定**
+
+セッションIDクッキーを暗号化するためのsecretです。単一のsecretなら文字列、複数のsecretなら配列を指定します。配列を指定した場合、セッションIDクッキーの暗号化には最初の要素のみが使用され、リクエスト内の署名の復号には全ての要素が使用されます。
+
+
+##### store
+
+session storeのインスタンスです。デフォルトでは新しく`MemoryStore`インスタンスが指定されています。
+
+
+##### unset
+
+`req.session`をunsetした際（`delete`や、`null`を設定する等）の結果をコントロールします。
+
+デフォルトは`keep`で
+
++ `destroy`: レスポンス終了時にセッションが破棄されます。
++ `keep`: ストア内のセッションは維持されますが、リクエストによってセッションの変更が発生したとしても無視され保存されません。
+
+
+**独自追記：以下未翻訳**
