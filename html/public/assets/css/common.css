@@ -169,6 +169,14 @@ module rule
 }
 .m-article .m-article_content h4
 {
+    font-size: 1.7rem;
+    font-weight: bold;
+
+    margin-top: 2.2rem;
+}
+.m-article .m-article_content h5
+{
+    font-size: 1.5rem;
     font-weight: bold;
 
     margin-top: 2.0rem;
@@ -193,16 +201,28 @@ module rule
 {
     margin: 0;
 }
+.m-article .m-article_content code
+{
+    padding: .3rem; 
+
+    background: #f6f8fa;
+}
 .m-article .m-article_content pre
 {
     font-size: 1.6rem;
 
-    overflow-x: scroll; 
+    overflow: auto; 
 
-    padding: .5rem;
+    padding: 1.5rem;
 
-    border: 1px solid #999;
-    background: #fafafa;
+    border-radius: 3px;
+    background: #f6f8fa;
+}
+.m-article .m-article_content pre > code
+{
+    padding: 0; 
+
+    background: transparent;
 }
 .m-article .m-article_content blockquote
 {

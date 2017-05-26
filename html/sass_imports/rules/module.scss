@@ -66,6 +66,12 @@ module rule
       margin-top: 2.5rem;
     }
     h4 {
+      font-size: 1.7rem;
+      font-weight: bold;
+      margin-top: 2.2rem;
+    }
+    h5 {
+      font-size: 1.5rem;
       font-weight: bold;
       margin-top: 2.0rem;
     }
@@ -81,12 +87,20 @@ module rule
         margin: 0;
       }
     }
+    code {
+      background: #f6f8fa;
+      padding: 0.3rem;
+    }
     pre {
-      border: 1px solid #999;
-      background: #fafafa;
+      border-radius: 3px;
+      background: #f6f8fa;
       font-size: 1.6rem;
-      padding: 0.5rem;
-      overflow-x: scroll;
+      padding: 1.5rem;
+      overflow: auto;
+      > code {
+        background: transparent;
+        padding: 0;
+      }
     }
     blockquote {
       padding-left: 1.0em;
