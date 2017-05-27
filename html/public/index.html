@@ -47,7 +47,7 @@
   </script>
   <script type="text/x-template" id="index-component-template">
     <div>
-      <ul class="m-articleList">
+      <ul class="m-articleList u-mb30">
         <li class="m-articleList_item" v-for="article in dispArticles">
           <link-component :article="article"></link-component>
         </li>
@@ -65,9 +65,9 @@
     </div>
   </script>
   <script type="text/x-template" id="pager-component-template">
-    <ul>
-      <li v-if="prevIsExist"><router-link :to="prevUrl">Prev</router-link></li>
-      <li v-if="nextIsExist"><router-link :to="nextUrl">Next</router-link></li>
+    <ul class="m-pager">
+      <li class="m-pager_item m-pager_item-prev" v-if="prevIsExist"><router-link class="m-pager_link" :to="prevUrl">&lt; Newer</router-link></li>
+      <li class="m-pager_item m-pager_item-next" v-if="nextIsExist"><router-link class="m-pager_link" :to="nextUrl">Older &gt;</router-link></li>
     </ul>
   </script>
   <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>

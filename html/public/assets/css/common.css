@@ -81,6 +81,23 @@ a.u-linkTxt02:hover
     border-color: #33a6b8;
 }
 
+/* margin
+----------------------------------------------------------*/
+.u-mb10
+{
+    margin-bottom: 10px;
+}
+
+.u-mb20
+{
+    margin-bottom: 20px;
+}
+
+.u-mb30
+{
+    margin-bottom: 30px;
+}
+
 /***********************************************************************
 module rule
 **********************************************************************/
@@ -328,6 +345,39 @@ module rule
         margin-left: auto;
     }
 }
+/* .m-pager
+----------------------------------------------------------*/
+.m-pager
+{
+    display: -webkit-box;
+    display: flex;
+}
+.m-pager .m-pager_item
+{
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+.m-pager .m-pager_item.m-pager_item-prev
+{
+    margin-right: auto;
+}
+.m-pager .m-pager_item.m-pager_item-next
+{
+    margin-left: auto;
+}
+.m-pager .m-pager_link
+{
+    display: inline-block;
+
+    padding: .75rem 1.0rem;
+
+    border-radius: 5px;
+}
+.m-pager .m-pager_link:hover
+{
+    background: #eaeaea;
+}
+
 /* .m-btn01
 ----------------------------------------------------------*/
 .m-btn01

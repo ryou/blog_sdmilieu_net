@@ -31,3 +31,17 @@ a.u-linkTxt01 {
 a.u-linkTxt02 {
   @include linkTxt02;
 }
+
+
+
+/* margin
+----------------------------------------------------------*/
+.u-mb10 {
+  margin-bottom: 10px;
+}
+.u-mb20 {
+  margin-bottom: 20px;
+}
+.u-mb30 {
+  margin-bottom: 30px;
+}
