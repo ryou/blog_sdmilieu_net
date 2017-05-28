@@ -17,12 +17,6 @@
       }
     },
     methods: {
-      showPrev: function() {
-        this.$emit('prev');
-      },
-      showNext: function() {
-        this.$emit('next');
-      }
     }
   };
   var IndexComponent = {
@@ -43,12 +37,6 @@
       }
     },
     methods: {
-      prevPage: function() {
-        this.currentPage--;
-      },
-      nextPage: function() {
-        this.currentPage++;
-      }
     },
     watch: {
       '$route': function(to, from) {
