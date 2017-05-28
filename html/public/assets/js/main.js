@@ -45,6 +45,7 @@
         } else {
           this.currentPage = parseInt(to.params.index);
         }
+        $(window).scrollTop(0);
       }
     },
     components: {
