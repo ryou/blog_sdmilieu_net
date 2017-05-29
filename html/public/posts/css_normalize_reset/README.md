@@ -35,8 +35,10 @@ margin: .67em 0;
 例えば「margin-bottomだけ20pxで他は0」みたいな「.heading01」を作る時、以下のようにしないといけません。
 
 ```
-margin-top: 0; /* リセットスタイルを当てないといけない */
-margin-bottom: 20px;
+.heading01 {
+  margin-top: 0; /* リセットスタイルを当てないといけない */
+  margin-bottom: 20px;
+}
 ```
 
 上記のように、多くのスタイルの指定で`sanitize.css`を使うとResetを使った場合本来不要なリセットスタイルを「個別に」当てないといけなくなると思うんですよ。個人的にはかなりありえない。
