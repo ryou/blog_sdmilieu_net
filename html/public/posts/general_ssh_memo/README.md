@@ -39,3 +39,9 @@ SSHに関して頻繁に仕組みを忘れては調べなおしてってのを�
 [共通鍵暗号と公開鍵暗号の解説とSSHでの認証手順 - VPSサービスの使い方](https://www.adminweb.jp/web-service/ssh/index4.html)
 
 [公開鍵暗号と電子署名の基礎知識 - Qiita](http://qiita.com/kunichiko/items/ef5efdb41611d6cf7775)
+
+## 気になる
+
+[RSA暗号の世界 | サルにも分かるRSA暗号](http://www.maitou.gr.jp/rsa/rsa10.php)
+
+実際にRSA暗号（公開鍵暗号）の暗号化・復号化がどのようにされているのか。ざっとしか読んでないのでじっくり読んで理解したい。
