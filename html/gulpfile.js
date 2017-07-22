@@ -8,7 +8,7 @@ var watch   = require('gulp-watch');
 var del     = require('del');
 
 // css関係
-var sass         = require('gulp-ruby-sass');
+var sass         = require('gulp-sass');
 var csscomb      = require('gulp-csscomb');
 var autoprefixer = require('gulp-autoprefixer');
 
@@ -33,10 +33,11 @@ var paths = {
 
 
 gulp.task('sass', function() {
-  return sass('src/', {
-    loadPath: './sass_imports',
-    style: 'nested'
-  })
+  return gulp.src(paths.sass)
+  .pipe(sass({
+    includePaths: './sass_imports',
+    outputStyle: 'nested'
+  }).on('error', sass.logError))
   .pipe(autoprefixer({
     browsers: ['android 2.3'],
     remove: false
