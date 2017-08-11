@@ -81,9 +81,18 @@ module rule
     ul {
       li {
         list-style: disc;
-        margin-left: 1em;
+        margin-left: 1.3em;
       }
       ul {
+        margin: 0;
+      }
+    }
+    ol {
+      li {
+        list-style: decimal;
+        margin-left: 1.3em;
+      }
+      ol {
         margin: 0;
       }
     }

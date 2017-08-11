@@ -222,12 +222,24 @@ module rule
 
 .m-article .m-article_content ul li
 {
-    margin-left: 1em; 
+    margin-left: 1.3em; 
 
     list-style: disc;
 }
 
 .m-article .m-article_content ul ul
+{
+    margin: 0;
+}
+
+.m-article .m-article_content ol li
+{
+    margin-left: 1.3em; 
+
+    list-style: decimal;
+}
+
+.m-article .m-article_content ol ol
 {
     margin: 0;
 }
