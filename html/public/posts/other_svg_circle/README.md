@@ -8,6 +8,10 @@ SVGに関して無知だったので調べてみたら、d3.jsをわざわざ使
 
 [DEMO](./examples/example01.html)
 
+一番最初はこの方法で実装した。
+
+そこまで複雑ではないが、三角関数を利用して計算する必要があったりと多少面倒。
+
 
 ## stroke-dasharray/stroke-dashoffsetを利用する
 
