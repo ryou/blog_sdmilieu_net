@@ -1,6 +1,6 @@
 # Web Audio APIとSVGによる簡易スペクトラムアナライザー
 
-[DEMO](./demo/)
+[DEMO](./demo/index.html)
 
 ## 詳細
 
