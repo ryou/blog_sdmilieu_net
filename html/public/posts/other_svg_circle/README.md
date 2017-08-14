@@ -27,4 +27,6 @@ pathの内容が動的に変化する場合はこの手法は取れないが、p
 
 ## 参考
 
+[svg要素の基本的な使い方まとめ](http://defghi1977.html.xdomain.jp/tech/svgMemo/svgMemo.htm)
+
 [SVGによる円弧の描画サンプル](http://yamatyuu.net/computer/html/svg/arc.html)
