@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>簡易スペアナ</title>
+
+    <link rel="stylesheet" href="./style.css">
+  </head>
+  <body>
+    <div class="m-overlay01">
+      <div class="m-overlay01__btn">音声ファイルを選択してください。</div>
+    </div>
+    <div class="l-tool-area">
+      <div class="m-file-upload01">
+        <input type="file" class="m-file-upload01__input">
+        <div class="m-file-upload01__main">
+          <p class="m-file-upload01__file-name"></p>
+          <div class="m-file-upload01__upload">
+            <i class="fa fa-file-audio-o"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+    <svg class="m-svg01" width="640" height="255" viewBox="0 0 640 255" preserveAspectRatio="none">
+      <defs>
+        <linearGradient id="MyGradient01" gradientTransform="rotate(90)">
+          <stop offset="5%" stop-color="#2980b9" />
+          <stop offset="95%" stop-color="#2ecc71" />
+        </linearGradient>
+      </defs>
+      <polyline
+        class="m-svg01__line"
+        fill="url(#MyGradient01)"
+      ></polyline>
+    </svg>
+
+    <script src="https://use.fontawesome.com/d5e868bfc0.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.2.js"></script>
+    <script src="./main.js"></script>
+  </body>
+</html>
