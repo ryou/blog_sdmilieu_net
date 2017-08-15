@@ -41,7 +41,7 @@ var AudioController = (function() {
       }
 
       this._startTime = Date.now()/1000 - time;
-      this._source.start(time);
+      this._source.start(0, time);
     }
   };
 
