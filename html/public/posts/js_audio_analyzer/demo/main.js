@@ -4,6 +4,7 @@ $(function() {
   var $line = $svg.find('.m-svg01__line');
 
   var audioController = new AudioController();
+  audioController.volume(0.75);
 
   var render = function() {
     var spectrums = audioController.getSpectrums();
