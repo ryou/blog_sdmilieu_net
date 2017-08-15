@@ -11,7 +11,6 @@ var AudioController = (function() {
     this._startTime = null;
     this._source = null;
 
-    this._analyzer.connect(this._gainNode);
     this._gainNode.connect(this._context.destination);
   };
 
@@ -29,6 +28,7 @@ var AudioController = (function() {
 
       self._source.buffer = decodedBuffer;
       self._source.connect(self._analyzer);
+      self._source.connect(self._gainNode);
 
       callback();
     });
