@@ -47,14 +47,14 @@ var AudioController = (function() {
    * buffer: デコード済音声データ
   ----------------------------------------------------------*/
   proto._setup = function(buffer) {
-    if(this._source) {
-      this._source.stop();
-    }
+    this.stop();
 　
     this._source = this._context.createBufferSource();
 
     this._source.buffer = buffer;
     this._source.connect(this._gainNode);
+    this._status = 'pause';
+    this._currentTime = 0;
   };
 
   /* デコード前音声データの読み込み
@@ -63,11 +63,12 @@ var AudioController = (function() {
   ----------------------------------------------------------*/
   proto.load = function(buffer, callback) {
     var self = this;
+
+    self.stop();
+
     self._context.decodeAudioData(buffer, function(decodedBuffer) {
       self._musicBuffer = decodedBuffer;
       self._setup(decodedBuffer);
-      self._currentTime = 0;
-      self._status = 'pause';
 
       callback();
     });
@@ -92,18 +93,20 @@ var AudioController = (function() {
   /* 音声を一時停止する
   ----------------------------------------------------------*/
   proto.pause = function() {
-    this._currentTime = Date.now()/1000 - this._startTime;
-    this._status = 'pause';
     this.stop();
     this._setup(this._musicBuffer);
+    this._currentTime = Date.now()/1000 - this._startTime;
   };
 
   /* 音声を停止する
    * NOTE: 作成中。この関数の必要性はある？
   ----------------------------------------------------------*/
   proto.stop = function() {
-    if (this._source) {
+    if (this._source && this._status === 'play') {
       this._source.stop();
+      this._source = null;
+      this._status = 'blank';
+      this._currentTime = 0;
     }
   };
 

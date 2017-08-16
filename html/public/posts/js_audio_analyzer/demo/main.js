@@ -38,11 +38,14 @@ $(function() {
     pointStr += '640,0';
     $line.attr('points', pointStr);
 
-    var currentTime = audioController.audio().currentTime;
-    var totalTime = audioController.audio().totalTime;
-    var currentP = currentTime / totalTime * 100;
+    var audio = audioController.audio();
+    if (audio) {
+      var currentTime = audio.currentTime;
+      var totalTime = audio.totalTime;
+      var currentP = currentTime / totalTime * 100;
 
-    $('.m-player01.js-player .m-bar01__current').css('width', currentP + '%');
+      $('.m-player01.js-player .m-bar01__current').css('width', currentP + '%');
+    }
 
     animationId = requestAnimationFrame(render);
   };
