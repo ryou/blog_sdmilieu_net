@@ -1,0 +1,67 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.l-content {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 50px 10px;
+}
+
+section:not(:last-child) {
+  margin-bottom: 100px;
+}
+
+
+/* .animation-fadeup
+----------------------------------------------------------*/
+.animation-fadeup {
+  opacity: 0;
+  transform: translateY(30px);
+}
+.animation-fadeup.animation-start {
+  animation-duration: .5s;
+  animation-name: fadeup;
+}
+.animation-fadeup.animation-end {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes fadeup {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* .animation-zoom
+----------------------------------------------------------*/
+.animation-zoom {
+  transform: scale(0);
+}
+.animation-zoom.animation-start {
+  animation-duration: .5s;
+  animation-name: zoom;
+}
+.animation-zoom.animation-end {
+  transform: scale(1.0);
+}
+
+@keyframes zoom {
+  0% {
+    transform: scale(0);
+  }
+  80% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1.0);
+  }
+}
