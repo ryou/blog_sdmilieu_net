@@ -27,6 +27,12 @@ var after = $target.data('animation-after') || null;
 
 `data-animation-delay`で、特定idのアニメーションが終了後にアニメーションを実行するように出来るように。
 
+単一idはもちろん、次のように複数idを指定してそれら全てのアニメーションが完了した際に実行するようにも出来る。
+
+```
+data-animation-after="[1, 3]">
+```
+
 コードは以下のようにしている。
 
 ```
