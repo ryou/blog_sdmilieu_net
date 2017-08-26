@@ -20,20 +20,13 @@ section:not(:last-child) {
   opacity: 0;
   transform: translateY(30px);
 }
-.animation-fadeup.animation-start {
+.animation-fadeup.exec-animation {
   animation-duration: .5s;
+  animation-fill-mode: forwards;
   animation-name: fadeup;
-}
-.animation-fadeup.animation-end {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 @keyframes fadeup {
-  0% {
-    opacity: 0;
-    transform: translateY(30px);
-  }
   100% {
     opacity: 1;
     transform: translateY(0);
@@ -46,18 +39,13 @@ section:not(:last-child) {
 .animation-zoom {
   transform: scale(0);
 }
-.animation-zoom.animation-start {
+.animation-zoom.exec-animation {
   animation-duration: .5s;
+  animation-fill-mode: forwards;
   animation-name: zoom;
-}
-.animation-zoom.animation-end {
-  transform: scale(1.0);
 }
 
 @keyframes zoom {
-  0% {
-    transform: scale(0);
-  }
   80% {
     transform: scale(1.05);
   }

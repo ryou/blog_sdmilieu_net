@@ -42,17 +42,11 @@ $(function() {
         var after = $target.data('animation-after') || null;
         var delay = $target.data('animation-delay') || 0;
 
-        /* イベント
-        ----------------------------------------------------------*/
-        $target.on('transitionend animationend', function() {
-          $target.addClass('animation-end');
-        });
-
         /* 関数
         ----------------------------------------------------------*/
         var animate = function() {
           setTimeout(function() {
-            $target.addClass('animation-start');
+            $target.addClass('exec-animation');
           }, delay);
         };
 
