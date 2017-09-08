@@ -48,3 +48,11 @@ npm i -S
 npm install --save-dev
 npm i -D
 ```
+
+
+
+## package-lock.jsonの意味
+
+細かいバージョンを記録して、バージョンの違いによる挙動差異をなくす
+
+[webのプロジェクトフォルダ直下のファイルの意味をまとめてみた - Qiita](http://qiita.com/tonkotsuboy_com/items/99b665cecf16f5ac037d)
