@@ -68,3 +68,44 @@ gist [対象ファイル]
 ### 参考
 
 [ターミナルからGistに投稿 - Qiita](http://qiita.com/smison/items/d7fdec3a1b74a0d22c36)
+
+
+
+
+## Karabiner-ElementsでCtrl+MをCapslockにする方法
+
+下記内容を`rules`に追加すればいい。
+
+```
+{
+    "description": "Ctrl+M => Capslock",
+    "manipulators": [
+        {
+            "from": {
+                "key_code": "comma",
+                "modifiers": {
+                    "mandatory": [
+                        "control"
+                    ],
+                    "optional": [
+                        "caps_lock"
+                    ]
+                }
+            },
+            "to": [
+                {
+                    "key_code": "caps_lock"
+                }
+            ],
+            "type": "basic"
+        }
+    ]
+}
+```
+
+注意点としては、`optional`に`caps_lock`を追加すること。
+
+そうしないと、caps_lockが有効になった状態だと「controlとcaps_lock」の２つの修飾キーが有効とみなされて、caps_lockが発火しない。
+
+
+
