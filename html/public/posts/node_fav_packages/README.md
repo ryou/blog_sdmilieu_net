@@ -21,3 +21,61 @@ npm: [cheerio-httpcli](https://www.npmjs.com/package/cheerio-httpcli)
 ただ残念ながらREADMEに書いている通り既にメンテナンスされていない。
 
 コードが千行程度で割りと短いので、自分で読んで一度理解しておくのもいいかもと思った。
+
+## minimist
+
+[minimist](https://www.npmjs.com/package/minimist)
+
+CUI上で使用するnode.jsプログラムを作る際、引数を簡単に扱えるようにしてくれるパッケージ。
+
+### 詳細
+
+node.jsでは`process.argv`で引数を取得することが出来る
+
+例えば、`hoge`という以下の内容のJavaScriptプログラムを作成したとする。
+
+```
+#!/usr/bin/env node
+
+// 実際の引数は配列の３番目以降なので、sliceを利用して抽出する
+var argv = process.argv.slice(2);
+
+console.log(argv);
+```
+
+これに対し、`hoge -e dev`といったコマンドを打った場合は
+
+```
+[ '-e', 'dev' ]
+```
+
+このままだと単に配列に羅列されているだけで扱いづらい。
+
+ここで`minimistを利用すると`
+
+```
+#!/usr/bin/env node
+
+var minimist = require('minimist');
+
+// 実際の引数は配列の３番目以降なので、sliceを利用して抽出する
+var argv = minimist(process.argv.slice(2));
+
+console.log(argv);
+```
+
+のようなソースコードになり、`hoge -e dev`に対する出力は
+
+```
+{ _: [], e: 'dev' }
+```
+
+と言うかたちとなる。
+
+今回の場合、`-e`オプションは`dev`なら開発環境モード、`prod`なら本番環境モードといった感じの物を想定しており、
+
+```
+var environment = argv.e || 'dev';
+```
+
+といった形で変数`environment`にオプションが指定されている場合は指定されたオプションが入り、指定されていない場合はデフォルト値（今回の場合はdev）が入る、といったよくある処理が簡単に出来るようになる。
