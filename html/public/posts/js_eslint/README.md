@@ -22,6 +22,35 @@ Atomの場合は、linter-eslintをインストールする。
 
 依存しているパッケージが複数あるが、linter-eslintをインストールする際に「これも必要だけどインストールする？」って確認してくれるので、そこで一緒にインストールすればいい。
 
+### (Optional).vueファイルを使用する場合
+
+`.vue`ファイルを使用する場合は、それに対してもESLintが動作するよう設定をしなければならない。
+
+やることは
+
++ `eslint-plugin-vue`のインストール
++ Atomで、linter-eslintの設定に`text.html.vue`を追加
+
+#### `eslint-plugin-vue`のインストール
+
+以下のコマンドでインストール
+
+```
+npm i -D eslint-plugin-vue
+```
+
+#### Atomで、linter-eslintの設定に`text.html.vue`を追加
+
+linter-eslintの設定内に「List of scopes to run ESLing on, ~」といった感じの、どのファイルに対してESLintを動作させるかの設定がある。
+
+そこに`text.html.vue`を追加。
+
+（なぜ`source.vue`でなく、`text.html.vue`なのかは不明。説明にある通り、`.vue`ファイルに対してAtomの`Editor: Log Cursor Scope`を実行すると`text.html.vue`が表示される）
+
+（追記：どうも`language-vue`がScopeとして`text.html.vue`を指定しているのでその関係っぽい）
+
+[Atomのlinter-eslintでvuejsのプラグインを導入する](http://omachizura.com/note/Atom%E3%81%AElinter-eslint%E3%81%A7vuejs%E3%81%AE%E3%83%97%E3%83%A9%E3%82%B0%E3%82%A4%E3%83%B3%E3%82%92%E5%B0%8E%E5%85%A5%E3%81%99%E3%82%8B.html)
+
 
 ## プロジェクトの準備
 
