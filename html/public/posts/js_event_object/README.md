@@ -29,7 +29,7 @@ currentTarget => .box
 
 ```
 target => .box
-.currentTarget => .box
+currentTarget => .box
 ```
 
 となる。
