@@ -1,4 +1,30 @@
 ;(function() {
+  var SearchComponent = {
+    data: function() {
+      return {
+        keyword: '',
+      };
+    },
+    template: '#search-component-template',
+    methods: {
+      onInput: function() {
+        if (this.keyword === '') {
+          this.$router.push(`/`);
+        } else {
+          this.$router.push(`/search/${this.keyword}/`);
+        }
+      },
+    },
+    watch: {
+      '$route': function(to, from) {
+        if (typeof to.params.keyword === 'undefined') {
+          this.keyword = '';
+        } else {
+          this.keyword = to.params.keyword;
+        }
+      }
+    },
+  };
   var AriticleListComponent = {
     props: ['articles'],
     template: '#article-list-component-template',
@@ -83,7 +109,8 @@
     },
     components: {
       'article-list-component': AriticleListComponent,
-      'pager-component': PagerComponent
+      'pager-component': PagerComponent,
+      'search-component': SearchComponent,
     },
     mounted: function() {
       document.title = 'index';
@@ -92,6 +119,36 @@
       } else {
         this.currentPage = parseInt(this.$route.params.index);
       }
+    }
+  };
+  var SearchPageComponent = {
+    data: function() {
+      return {
+      };
+    },
+    props: ['articles'],
+    template: '#search-page-component-template',
+    computed: {
+      dispArticles: function() {
+        var outArticle = this.articles;
+
+        var keyword = this.$route.params.keyword;
+
+        if (keyword.length > 0) {
+          outArticle = outArticle.filter((article) => {
+            return article.title.toLowerCase().includes(keyword.toLowerCase());
+          });
+        } else {
+          outArticle = outArticle.slice(this.count*this.currentPage, this.count*(this.currentPage+1))
+        }
+        return outArticle;
+      },
+    },
+    components: {
+      'article-list-component': AriticleListComponent,
+    },
+    mounted: function() {
+      document.title = '検索';
     }
   };
   var PostPageComponent = {
@@ -118,6 +175,8 @@
       }
     },
     mounted: function() {
+      $(window).scrollTop(0);
+
       var self = this;
       this.articles.forEach(function(e, i, a) {
         if (e.perma_link === self.$route.params.perma_link) {
@@ -161,10 +220,14 @@
       routes: [
         { path: '/', component: IndexPageComponent },
         { path: '/page/:index/', component: IndexPageComponent },
+        { path: '/search/:keyword/', component: SearchPageComponent },
         { path: '/posts/:perma_link/', component: PostPageComponent },
         { path: '*', component: NotFoundPageComponent }
       ]
     }),
+    components: {
+      'search-component': SearchComponent,
+    },
     created: function() {
       var self = this;
       $.getJSON('/posts/articles.json')

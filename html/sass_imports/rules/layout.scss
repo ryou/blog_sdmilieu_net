@@ -29,6 +29,14 @@ layout rule
 ----------------------------------------------------------*/
 .l-header {
   padding: 3.0rem 0 5.0rem;
+
+  display: flex;
+}
+.l-header_logo {
+  flex-grow: 1;
+}
+.l-header_search {
+
 }
 
 /* .l-footer

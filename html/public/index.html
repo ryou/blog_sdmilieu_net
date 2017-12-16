@@ -15,12 +15,16 @@
   <div class="l-container">
     <div id="app">
       <header class="l-header">
-        <p class="m-logo"><router-link class="m-logo_txt" to="/">技術メモ</router-link></p>
+        <div class="l-header_logo">
+          <p class="m-logo"><router-link class="m-logo_txt" to="/">技術メモ</router-link></p>
+        </div>
+        <div class="l-header_search">
+          <search-component class="u-mb20"></search-component>
+        </div>
       </header>
       <!-- /.l-header -->
-      <transition name="fade" mode="out-in">
-        <router-view :articles="articles"></router-view>
-      </transition>
+
+      <router-view :articles="articles"></router-view>
 
 
       <footer class="l-footer">
@@ -34,6 +38,15 @@
   </div>
   <!-- /.l-container -->
 
+  <script type="text/x-template" id="search-component-template">
+    <input
+      type="text"
+      v-model="keyword"
+      placeholder="検索"
+      class="m-input01"
+      @input="onInput"
+    >
+  </script>
   <script type="text/x-template" id="article-list-component-template">
     <ul class="m-articleList">
       <li class="m-articleList_item" v-for="article in articles">
@@ -55,9 +68,13 @@
   </script>
   <script type="text/x-template" id="index-page-component-template">
     <div>
-      <input v-if="currentPage === 0" type="text" v-model="search" placeholder="検索" class="m-input01 u-mb20">
       <article-list-component :articles="dispArticles" class="u-mb30"></article-list-component>
       <pager-component v-if="search.length <= 0" :current="currentPage" :total="totalPage"></pager-component>
+    </div>
+  </script>
+  <script type="text/x-template" id="search-page-component-template">
+    <div>
+      <article-list-component :articles="dispArticles" class="u-mb30"></article-list-component>
     </div>
   </script>
   <script type="text/x-template" id="post-page-component-template">

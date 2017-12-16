@@ -33,7 +33,16 @@ layout rule
 ----------------------------------------------------------*/
 .l-header
 {
+    display: -webkit-box;
+    display: flex; 
+
     padding: 3.0rem 0 5.0rem;
+}
+
+.l-header_logo
+{
+    -webkit-box-flex: 1;
+    flex-grow: 1;
 }
 
 /* .l-footer
@@ -101,6 +110,23 @@ a.u-linkTxt02:hover
     margin-bottom: 30px;
 }
 
+/* align
+----------------------------------------------------------*/
+.u-align-left
+{
+    text-align: left;
+}
+
+.u-align-center
+{
+    text-align: center;
+}
+
+.u-align-right
+{
+    text-align: right;
+}
+
 /***********************************************************************
 module rule
 **********************************************************************/
@@ -122,14 +148,6 @@ module rule
 {
     color: #33a6b8;
     border-color: #33a6b8;
-}
-
-@media only screen and (max-width: 767px)
-{
-    .m-logo
-    {
-        text-align: center;
-    }
 }
 
 /* .m-footer
@@ -421,13 +439,15 @@ module rule
     font-size: 1.6rem;
 
     -webkit-box-sizing: border-box;
-            box-sizing: border-box; 
+            box-sizing: border-box;
     width: 100%;
-    max-width: 600px;
-    padding: 10px 20px;
+    max-width: 200px;
+    height: 30px;
+    padding: 0 10px;
 
     border: 0;
     border-bottom: 2px solid #2c3e50;
+    outline: 0;
 }
 
 /* .m-btn01
