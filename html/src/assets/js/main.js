@@ -42,7 +42,7 @@
     methods: {
     }
   };
-  var IndexComponent = {
+  var IndexPageComponent = {
     data: function() {
       return {
         search: '',
@@ -51,7 +51,7 @@
       };
     },
     props: ['articles'],
-    template: '#index-component-template',
+    template: '#index-page-component-template',
     computed: {
       dispArticles: function() {
         var outArticle = this.articles;
@@ -94,7 +94,7 @@
       }
     }
   };
-  var PostsComponent = {
+  var PostPageComponent = {
     data: function() {
       return {
         content: '',
@@ -103,7 +103,7 @@
       };
     },
     props: ['articles'],
-    template: '#posts-component-template',
+    template: '#post-page-component-template',
     computed: {
       title: function() {
         return (this.$route.params.perma_link.split('__'))[1];
@@ -144,7 +144,7 @@
         });
     }
   };
-  var NotFoundComponent = {
+  var NotFoundPageComponent = {
     template: '<div>not found.</div>',
     mounted: function() {
       document.title = 'not found';
@@ -159,10 +159,10 @@
     router: new VueRouter({
       mode: 'history',
       routes: [
-        { path: '/', component: IndexComponent },
-        { path: '/page/:index/', component: IndexComponent },
-        { path: '/posts/:perma_link/', component: PostsComponent },
-        { path: '*', component: NotFoundComponent }
+        { path: '/', component: IndexPageComponent },
+        { path: '/page/:index/', component: IndexPageComponent },
+        { path: '/posts/:perma_link/', component: PostPageComponent },
+        { path: '*', component: NotFoundPageComponent }
       ]
     }),
     created: function() {
