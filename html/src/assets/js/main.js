@@ -1,4 +1,27 @@
 ;(function() {
+  var AriticleListComponent = {
+    props: ['articles'],
+    template: '#article-list-component-template',
+    components: {
+      'link-component': {
+        props: ['article'],
+        template: '#link-component-template',
+        computed: {
+          url: function() {
+            return '/posts/';
+          },
+          date: function() {
+            var date = new Date(
+              this.article.date.slice(0, 4),
+              this.article.date.slice(4, 6)-1,
+              this.article.date.slice(6, 8)
+            );
+            return date;
+          }
+        }
+      },
+    },
+  };
   var PagerComponent = {
     props: ['current', 'total'],
     template: '#pager-component-template',
@@ -59,23 +82,7 @@
       }
     },
     components: {
-      'link-component': {
-        props: ['article'],
-        template: '#link-component-template',
-        computed: {
-          url: function() {
-            return '/posts/';
-          },
-          date: function() {
-            var date = new Date(
-              this.article.date.slice(0, 4),
-              this.article.date.slice(4, 6)-1,
-              this.article.date.slice(6, 8)
-            );
-            return date;
-          }
-        }
-      },
+      'article-list-component': AriticleListComponent,
       'pager-component': PagerComponent
     },
     mounted: function() {
