@@ -22,6 +22,7 @@
   var IndexComponent = {
     data: function() {
       return {
+        search: '',
         currentPage: 0,
         count: 10
       };
@@ -30,7 +31,16 @@
     template: '#index-component-template',
     computed: {
       dispArticles: function() {
-        return this.articles.slice(this.count*this.currentPage, this.count*(this.currentPage+1));
+        var outArticle = this.articles;
+
+        if (this.search.length > 0) {
+          outArticle = outArticle.filter((article) => {
+            return article.title.toLowerCase().includes(this.search.toLowerCase());
+          });
+        } else {
+          outArticle = outArticle.slice(this.count*this.currentPage, this.count*(this.currentPage+1))
+        }
+        return outArticle;
       },
       totalPage: function() {
         return (this.articles.length / this.count) + 1;

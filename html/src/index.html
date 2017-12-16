@@ -48,12 +48,13 @@
   </script>
   <script type="text/x-template" id="index-component-template">
     <div>
+      <input v-if="currentPage === 0" type="text" v-model="search" placeholder="検索" class="m-input01 u-mb20">
       <ul class="m-articleList u-mb30">
         <li class="m-articleList_item" v-for="article in dispArticles">
           <link-component :article="article"></link-component>
         </li>
       </ul>
-      <pager-component :current="currentPage" :total="totalPage"></pager-component>
+      <pager-component v-if="search.length <= 0" :current="currentPage" :total="totalPage"></pager-component>
     </div>
   </script>
   <script type="text/x-template" id="posts-component-template">

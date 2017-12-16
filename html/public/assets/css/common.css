@@ -414,6 +414,22 @@ module rule
     background: #eaeaea;
 }
 
+/* .m-input01
+----------------------------------------------------------*/
+.m-input01
+{
+    font-size: 1.6rem;
+
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box; 
+    width: 100%;
+    max-width: 600px;
+    padding: 10px 20px;
+
+    border: 0;
+    border-bottom: 2px solid #2c3e50;
+}
+
 /* .m-btn01
 ----------------------------------------------------------*/
 .m-btn01
