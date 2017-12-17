@@ -5,7 +5,7 @@
 
 ## ツールチップ
 
-[DEMO](./demo/tool-top/index.html)
+[DEMO](./demo/tool-tip/index.html)
 
 ### キモとなる箇所
 
