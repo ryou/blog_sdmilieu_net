@@ -58,7 +58,11 @@ git show 3e7a16a572f6e6aa673f517ea4ff8b9d1e70486e:src/html/index.ejs | pbcopy
 ※標準出力へ吐き出されるので、`pbcopy`でクリップボードへ出力している。
 
 
+## Atom関係
 
+### `Cmd+p`によるファイル検索から、特定のファイル・ディレクトリを除外したい
+
+「Setting -> Core -> Ignored Names」に除外したいファイル・ディレクトリ名を指定すればOK
 
 
 ## その他
