@@ -10,6 +10,16 @@ FlexBoxがいい加減積極的に使うべき物になってるので、まと�
 
 これはまた別にまとめたい。
 
+### flex-item内の要素に対してtext-overflowが効かない
+
+不具合かは仕様書を読まないとわからないが、flex-item内の要素に対してtext-overflowが効かない問題が有る。
+
+対策としては、flex-itemに対して`min-width: 0;`を指定すればいい。
+
+[flexbox内でtext-overflowが効かない | cly7796.net](http://cly7796.net/wp/css/it-does-not-work-text-overflow-in-the-flexbox/)
+
+
+
 ## プロパティ
 
 ### display: flexを指定した要素に対するプロパティ
