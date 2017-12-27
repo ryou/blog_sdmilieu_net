@@ -18,6 +18,19 @@ FlexBoxがいい加減積極的に使うべき物になってるので、まと�
 
 [flexbox内でtext-overflowが効かない | cly7796.net](http://cly7796.net/wp/css/it-does-not-work-text-overflow-in-the-flexbox/)
 
+### IE11でbox-sizingがflex-basisに効かない
+
+`flex-basis`と同値の`max-width`を指定すればOK。
+
+```
+.flex-item {
+  flex-basis: 50%;
+  max-width: 50%;
+}
+```
+
+[【IE11バグ】 flex-basisにbox-sizingが効かない不具合 &#8211; 広告のフジプロ](http://www.fujipro-inc.com/2015/11/30/2910.html)
+
 
 
 ## プロパティ
