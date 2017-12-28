@@ -64,7 +64,7 @@ for (i = node.length; i--; ) {
 
 ```
 for (i = node.length; i > 0; i-- ) {
-  stack.push(node[i])
+  stack.unshift(node[i])
 }
 ```
 
