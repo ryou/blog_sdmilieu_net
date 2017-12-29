@@ -89,6 +89,44 @@ npm i -D eslint
   Standard
 ```
 
+#### ES5プロジェクトの場合
+
+ES5の場合はひとまず以下のような設定ファイルを使用している
+
+```
+// .eslintrc.js
+module.exports = {
+    'env': {
+        'browser': true,
+        'jquery': true,
+    },
+    'extends': 'eslint:recommended',
+    'rules': {
+        'indent': [
+            'error',
+            2,
+        ],
+        'linebreak-style': [
+            'error',
+            'unix',
+        ],
+        'quotes': [
+            'error',
+            'single',
+        ],
+        'semi': [
+            'error',
+            'always',
+        ],
+    },
+};
+```
+
+適宜既存の設定ファイルを参考にしたりして諸々修正したい。
+
+
+
+
 ## その他メモ
 
 ### エラーチェックをスルーしたい場合
