@@ -89,3 +89,8 @@ copy.countUp(); // error
 
 
 というわけで`lodash`を使おう。
+
+
+## 参考
+
+[ES6のObject.assignがシャローコピーなのでディープコピーする方法を考える | Black Everyday Company](https://kuroeveryday.blogspot.jp/2017/05/deep-clone-object-in-javascript.html)
