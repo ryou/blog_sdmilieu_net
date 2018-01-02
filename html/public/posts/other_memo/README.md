@@ -57,6 +57,14 @@ git show 3e7a16a572f6e6aa673f517ea4ff8b9d1e70486e:src/html/index.ejs | pbcopy
 
 ※標準出力へ吐き出されるので、`pbcopy`でクリップボードへ出力している。
 
+### pagerを使用せずにlog等を確認したい
+
+グローバルのconfigを弄る
+
+```
+git config --global core.pager cat
+```
+
 
 ## Atom関係
 
