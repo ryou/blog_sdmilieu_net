@@ -3,6 +3,15 @@
 
 ## Git関係
 
+### マージ&ブランチ削除
+
+```
+git merge branch-name
+git branch -d branch-name
+```
+
+一定期間手動でやって、煩わしくなったらaliasを作る。
+
 ### コミットをまとめる
 
 ```
