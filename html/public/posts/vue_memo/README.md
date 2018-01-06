@@ -19,7 +19,7 @@ Vue.jsは、ページ遷移時もスクロール位置を維持してしまう�
 ページ遷移アニメーションがある場合は、[フックを利用する](https://jp.vuejs.org/v2/guide/transitions.html#JavaScript-%E3%83%95%E3%83%83%E3%82%AF)ことで違和感なくページ最上部までスクロール出来る。
 
 ```
-<transition name="slide" mode="out-in" @before-enter="beforeEnter">
+<transition name="slide" mode="out-in" @after-leave="scrollToTop">
   <router-view></router-view>
 </transition>
 ```
@@ -30,7 +30,7 @@ Vue.jsは、ページ遷移時もスクロール位置を維持してしまう�
 export default {
   ~
   methods: {
-    beforeEnter() {
+    scrollToTop() {
       window.scrollTo(0, 0);
     },
   },
@@ -39,3 +39,5 @@ export default {
 ```
 
 このように記述すれば実装可能。
+
+**`before-enter`タイミングでスクロールさせた場合、Firefoxでカクつきが発生（原因不明）。after-leaveタイミングなら正常に動作したため、こちらの方でメモを残す。**
