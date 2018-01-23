@@ -74,6 +74,13 @@ git show 3e7a16a572f6e6aa673f517ea4ff8b9d1e70486e:src/html/index.ejs | pbcopy
 git config --global core.pager cat
 ```
 
+### 特定リポジトリではユーザーを変更
+
+```
+git config user.name "username"
+git config user.email "email"
+```
+
 
 ## Atom関係
 
