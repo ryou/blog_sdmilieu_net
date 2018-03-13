@@ -112,7 +112,7 @@ gist [対象ファイル]
 [ターミナルからGistに投稿 - Qiita](http://qiita.com/smison/items/d7fdec3a1b74a0d22c36)
 
 
-### mvコマンドどファイル名を変更せず移動
+### mvコマンドでファイル名を変更せず移動
 
 ディレクトリだけ指定すればいい。
 
