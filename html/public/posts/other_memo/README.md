@@ -125,6 +125,17 @@ mv test.txt work/test
 でOK。
 
 
+### Macでrmコマンドでゴミ箱に移動するように
+
+小飼弾氏作の[mv2trash](https://github.com/dankogai/osx-mv2trash/blob/master/bin/mv2trash)を利用する。
+
+`/usr/local/bin`あたりに配置してalias設定すればOK。
+
+よく使われている`rmtrash`と異なり、AppleScriptを使用している物なので、右クリックからの「戻す」で元の位置に戻すことが可能。
+
+代わりにちょっと時間がかかるのはしょうがない。
+
+
 
 
 ## Karabiner-ElementsでCtrl+MをCapslockにする方法
