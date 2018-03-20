@@ -173,5 +173,9 @@ mv test.txt work/test
 
 そうしないと、caps_lockが有効になった状態だと「controlとcaps_lock」の２つの修飾キーが有効とみなされて、caps_lockが発火しない。
 
+### アプリに渡されてるキー入力を確認
 
+キーボードビューアで確認出来る模様
+
+https://qiita.com/yousan/items/30c7804261db6364de8e
 
