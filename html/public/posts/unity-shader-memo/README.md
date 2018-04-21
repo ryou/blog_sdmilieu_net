@@ -128,3 +128,36 @@ Pass {
 // VertexLit ビルトインシェーダーのshadow caster を取得
 UsePass "Legacy Shaders/VertexLit/SHADOWCASTER"
 ```
+
+### トゥーンシェーダーっぽくする
+
+輝度を計算し、一定のしきい値を下回ったら暗くするようにすればいい。
+
+一例として、以下のようにする。
+
+```
+fixed4 frag (v2f i) : SV_Target
+{
+  fixed4 col = tex2D(_MainTex, i.uv);
+
+  fixed lumi = Luminance(i.diff.rgb);
+
+  if (lumi > 0.05) {
+    col *= fixed4(1, 1, 1, 1);
+  } else {
+    col *= fixed4(0.9, 0.9, 0.9, 1);
+  }
+
+  return col;
+}
+```
+
+`Luminance`は`UnityCG.cginc`で定義されている関数で、色を輝度に変換してくれる。
+
+注意としては、
+
+```
+o.diff.rgb += ShadeSH9(half4(worldNormal,1));
+```
+
+こちらのアンビエントの処理を削除しておかないと影がギザギザになり汚くなってしまう。
