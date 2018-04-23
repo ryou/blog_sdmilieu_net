@@ -87,11 +87,11 @@ Build設定の「Player Setting」から解像度等調整出来る。
 
 
 
-## 構造体、クラスをinspectorで変更できるようにする方法
+## クラスをinspectorで変更できるようにする方法
 
 [UnityのInspectorで変数を表示する方法まとめ - Qiita](https://qiita.com/k_yanase/items/3bb59963a6f477f5a523)
 
-クラス、構造体宣言の直前に`[System.Serializable]`を記述すればいい。
+クラス宣言の直前に`[System.Serializable]`を記述すればいい。
 
 ```
 [System.Serializable]
@@ -101,6 +101,8 @@ public class PositionClass {
     public int y = 0;
 }
 ```
+
+構造体はインスペクタで表示できない模様。
 
 ### privateな変数をinspectorで変更する
 
