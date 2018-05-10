@@ -28,7 +28,9 @@ UI上には通常UI部品しか配置出来ない。
 なので、`CullingMask`にUIのみを設定し、UIレイヤー上のオブジェクトのみ描画するようにする。
 
 
-## 問題点（未解決）
+## 問題点（解決）
+
+（追記）以下は完全に勘違い。`SetParent`の第二引数がtrueだと親の状態によって子のScaleを良い感じに調整されるのだが、これがデフォルトtrueなため影響を受けてしまっていたのが原因。
 
 `ScreenSpace Camera`なCanvas内に動的にUIを追加すると、何故かUIのScaleが勝手に弄られてしまう。CanvasScalerの`UI Scale Mode`が`Constant Pixel Size`の時は、CameraのSize（Orthographicの場合）を見てCanvasのScaleを自動調整してくれるのだが、動的に追加されたUIは、`CanvasのScale * 追加したUIのScale = 1`になるようにScaleが設定されてしまう。CanvasのScaleが0.5とかの場合、追加UIのScaleは2になってしまっている。
 
