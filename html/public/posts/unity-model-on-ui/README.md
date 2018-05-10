@@ -32,7 +32,7 @@ UI上には通常UI部品しか配置出来ない。
 
 `ScreenSpace Camera`なCanvas内に動的にUIを追加すると、何故かUIのScaleが勝手に弄られてしまう。CanvasScalerの`UI Scale Mode`が`Constant Pixel Size`の時は、CameraのSize（Orthographicの場合）を見てCanvasのScaleを自動調整してくれるのだが、動的に追加されたUIは、`CanvasのScale * 追加したUIのScale = 1`になるようにScaleが設定されてしまう。CanvasのScaleが0.5とかの場合、追加UIのScaleは2になってしまっている。
 
-挙動はわかったが、解決法がわからない。とりあえず`Constant Pixel Size`は諦めて`Scale With Screen Size`とかでお茶を濁すしか無い。
+挙動はわかったが、解決法がわからない。とりあえず`Constant Pixel Size`は諦めて`Scale With Screen Size`とかでお茶を濁すしか無い。この方法を使う場合は、UI用のカメラのsizeをCanvasのscaleが1になるように調整し、なおかつ、CanvasのPosZが0になるようにカメラのZを調整しないといけない。
 
 
 ## 参考
