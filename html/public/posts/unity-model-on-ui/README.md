@@ -27,6 +27,14 @@ UI上には通常UI部品しか配置出来ない。
 
 なので、`CullingMask`にUIのみを設定し、UIレイヤー上のオブジェクトのみ描画するようにする。
 
+
+## 問題点（未解決）
+
+`ScreenSpace Camera`なCanvas内に動的にUIを追加すると、何故かUIのScaleが勝手に弄られてしまう。CanvasScalerの`UI Scale Mode`が`Constant Pixel Size`の時は、CameraのSize（Orthographicの場合）を見てCanvasのScaleを自動調整してくれるのだが、動的に追加されたUIは、`CanvasのScale * 追加したUIのScale = 1`になるようにScaleが設定されてしまう。CanvasのScaleが0.5とかの場合、追加UIのScaleは2になってしまっている。
+
+挙動はわかったが、解決法がわからない。とりあえず`Constant Pixel Size`は諦めて`Scale With Screen Size`とかでお茶を濁すしか無い。
+
+
 ## 参考
 
 [UnityでuGUIを使ったUIに3Dオブジェクトを表示させたい - hildsoftのコード置き場](http://code.hildsoft.com/entry/2018/01/10/090000)
