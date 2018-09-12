@@ -119,3 +119,27 @@ class Route extends Facade
 ```
 
 上記のようにコメントが書かれているのが理由かこちらはコード補完が働きました。
+
+
+## で、どうやれば補完が効くようになる？
+
+[GitHub - barryvdh/laravel-ide-helper: Laravel IDE Helper](https://github.com/barryvdh/laravel-ide-helper)
+
+こちらのide-helperを使います。
+
+### 手順
+
+公式を毎回見直すべきだが、一応。
+
+```
+# 仮想環境を使っているなら、事前に仮想環境にログインしておくこと
+
+composer require --dev barryvdh/laravel-ide-helper
+composer require doctrine/dbal
+
+php artisan ide-helper:generate
+# --dirには、モデルが配置されているディレクトリを入力
+# こちらの作業は、Modelが増えるたびに毎回行う必要がある
+php artisan ide-helper:models --dir="app/Models"
+```
+
