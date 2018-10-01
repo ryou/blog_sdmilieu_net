@@ -2,6 +2,19 @@
 
 備忘録のため、メモ程度に残しておく
 
+
+
+
+## json-server
+
+[typicode/json-server: Get a full fake REST API with zero coding in less than 30 seconds (seriously)](https://github.com/typicode/json-server)
+
+APIモックを作るのに便利
+
+クエリパラメータによらず、固定の値を返して欲しい場合はcustom routesを使えばいい
+
+[Add custom routes](https://github.com/typicode/json-server#add-custom-routes)
+
 ## cheerio-httpcli
 
 npm: [cheerio-httpcli](https://www.npmjs.com/package/cheerio-httpcli)
