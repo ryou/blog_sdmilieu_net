@@ -1,5 +1,16 @@
 # Laravelメモ
 
+## whereでOR検索したい
+
+同一カラムなら`whereIn`を使う。
+
+```
+$users = DB::table('users')
+                    ->whereIn('id', [1, 2, 3])
+                    ->get();
+```
+
+[データベース：クエリビルダ 5.6 Laravel（※「Where節を参照」）](https://readouble.com/laravel/5.6/ja/queries.html)
 
 
 ## Laravelで常に特定のレスポンスヘッダーを設定したい
