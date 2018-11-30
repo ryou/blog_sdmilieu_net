@@ -28,7 +28,8 @@ do
   fileFullName=$(basename $i)
   fileName=${fileFullName%.*}
   echo $fileName
-  ffmpeg -i $i -r 30 -s 1280x720 -ar 48000 conv/${fileName}.mp4
+  # 参考：http://sogohiroaki.sblo.jp/article/183618558.html
+  ffmpeg -i $i -r 30 -vf "yadif=deint=interlaced, scale=w=trunc(ih*dar/2)*2:h=trunc(ih/2)*2, setsar=1/1, scale=w=1280:h=720:force_original_aspect_ratio=1, pad=w=1280:h=720:x=(ow-iw)/2:y=(oh-ih)/2:color=#000000" -pix_fmt yuv420p -ar 48000 conv/${fileName}.mp4
 done
 
 #----------------------------------------
