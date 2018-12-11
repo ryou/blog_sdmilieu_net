@@ -152,6 +152,85 @@ SELECT id, name, price, category
 ```
 
 
+### 述語
+
+`述語`とは、返り値が論理値になる関数のこと。
+
+#### LIKE
+
+文字列の部分一致検索を行う。
+
+```
+-- 前方一致（例だとpencilとかが該当）
+SELECT * FROM items WHERE name = 'pen%';
+-- 中間一致（pencil,append,deepenとかが該当）
+SELECT * FROM items WHERE name = '%pen%';
+-- 後方一致（deepenが該当）
+SELECT * FROM items WHERE name = '%pen';
+```
+
+
+#### BETWEEN
+
+数値の範囲検索を行う。
+
+```
+-- 100以上1000以下の値を検索
+SELECT * FROM items WHERE price BETWEEN 100 AND 1000;
+
+-- 以下のクエリと同じ意味
+SELECT * FROM items WHERE price >= 100 AND price <= 1000;
+```
+
+
+#### IN
+
+`OR`の省略形
+
+```
+-- priceが100か200か300のレコードを検索
+SELECT * FROM items WHERE price IN (100, 200, 300);
+
+-- 以下のクエリと同じ意味
+SELECT * FROM items WHERE price = 100 OR price = 200 OR price = 300;
+
+-- INと組み合わせることも可能
+SELECT *
+  FROM items
+  WHERE id IN (
+      SELECT id
+        FROM items
+        WHERE price > 100
+    );
+
+-- NOT INとも
+SELECT *
+  FROM items
+  WHERE id NOT IN (
+      SELECT id
+        FROM items
+        WHERE price > 100
+    );
+```
+
+
+### CASE式
+
+条件分岐が出来る。
+
+```
+SELECT name
+  CASE WHEN category = 'PHP'
+    THEN 'A:' || category
+  CASE WHEN category = 'JavaScript'
+    THEN 'B:' || category
+  ELSE NULL
+  FROM items;
+```
+
+
+
+
 
 ## その他知識
 
