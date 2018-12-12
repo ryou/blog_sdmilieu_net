@@ -229,6 +229,97 @@ SELECT name
 ```
 
 
+### 集合演算
+
+集合の演算も可能。（和集合、差集合、積集合）
+
+```
+SELECT *
+  FROM items
+  WHERE id IN (1, 2)
+UNION
+SELECT *
+  FROM items
+  WHERE id IN (2, 3);
+```
+
+結果としてidが1,2,3のレコードが取得される。
+
+`UNION（和集合）`以外にも`INTERSECT（積集合）`と`EXCEPT（差集合）`が使用できる。
+
+#### ALLオプション
+
+和集合、積集合には集合同士の交差部分が存在している。デフォルトだと、この交差している、つまり重複しているレコードはひとつにまとめられるが、`ALL`オプションを使用することで重複レコードも残しておくことが出来る。
+
+```
+SELECT *
+  FROM items
+  WHERE id IN (1, 2)
+UNION ALL
+SELECT *
+  FROM items
+  WHERE id IN (2, 3);
+```
+
+このSQLでは、id2のレコードが２回出てくる。（ただidがprimary_keyの場合はエラーになるか…？）
+
+
+
+### JOIN
+
+テーブル同士を横方向に結合する処理。
+
+#### INNER JOIN
+
+`items`テーブル
+
+|id|name|price|
+|:----|:----|:----|
+|1|pencil|100|
+|2|pen|NULL|
+|3|eraser|50|
+
+`shops`テーブル
+
+|id|name|
+|:----|:----|
+|1|first|
+|2|second|
+|3|third|
+
+`item_shop`テーブル
+
+|id|shop_id|item_id|num|
+|:----|:----|:----|:----|
+|1|1|1|10|
+|2|1|2|20|
+|3|2|3|5|
+
+この３テーブルが存在しているとする。
+
+```
+SELECT
+  item_shop.id
+  item_shop.shop_id
+  item_shop.item_id
+  item_shop.num
+  items.name
+  items.price
+  FROM item_shop INNER JOIN items
+  ON item_shop.item_id = items.id;
+```
+
+こうすると、
+
+|id|shop_id|item_id|num|name|price|
+|:----|:----|:----|:----|:----|:----|
+|1|1|1|10|pencil|100|
+|2|1|2|20|pen|NULL|
+|3|2|3|5|eraser|50|
+
+という結果を得ることが出来る。
+
+
 
 
 
