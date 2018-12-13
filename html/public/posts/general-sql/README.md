@@ -369,6 +369,10 @@ SELECT *
 
 `COUNT`とか`SUM`とかのこと。
 
+集約関数が使えるのは、`SELECT`句、`HAVING`句、`ORDER BY`句のみ。**（`WHERE`句では使用できないので注意。）**
+
+集約関数を`SELECT`句で使用すると、結果は1行になる。（ex: `SELECT COUNT(*) FROM items;`）
+
 #### 記法
 
 |id|name|price|
