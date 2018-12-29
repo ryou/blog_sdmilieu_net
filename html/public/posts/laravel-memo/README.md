@@ -1,5 +1,22 @@
 # Laravelメモ
 
+
+
+## `Eloquent`の`all`はメモリ消費量が多いので注意
+
+大量のレコードを処理する場合は`chunk`を使おう。
+
+[Laravel(Eloquent): chunk() vs cursor() - Qiita](https://qiita.com/ryo511/items/ebcd1c1b2ad5addc5c9d)
+
+
+## 作った関数とか処理を手軽に試したい
+
+`tinker`を利用する。
+
+```
+php artisan tinker
+```
+
 ## whereでOR検索したい
 
 同一カラムなら`whereIn`を使う。
