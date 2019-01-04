@@ -26,6 +26,7 @@ else :
   print('例外')
 
 # inputで標準入力を待てる。この時、型は文字列型となっている
+# python2系の場合はraw_inputを使う
 input_count = input('数を入力してください：')
 
 # 配列は普通
@@ -88,4 +89,84 @@ class AdminUser(User):
   def __init__(self, permission):
     super().__init__()
     self.permission = permission
+```
+
+## ちょっとしたスクリプト書くときによく使うやつ
+
+### 特定の名前のディレクトリが無ければ作る
+
+`os.mkdir`を使う。
+
+指定したディレクトリが既に存在する場合は例外になってしまうため、`os.path.isdir`でディレクトリの存在確認を行う必要がある。
+
+```
+import os
+
+directory_name = 'dest'
+
+if not os.path.isdir(directory_name):
+  os.mkdir(directory_name)
+```
+
+### 実行ファイルのパスの取得方法
+
+`__file__`を使用する。
+
+`__file__`はカレントディレクトリからの相対パス。絶対パスが欲しい場合は`os.path.abspath`を使用する。
+
+```
+print(__file__) # => filename.py
+print(os.path.abspath(__file__)) # => /path/to/filename.py
+```
+
+### 特定ディレクトリからファイル一覧を取得
+
+`os.listdir`を使用する。
+
+```
+print(os.listdir('src')) # => ['script.py', 'data.txt']
+```
+
+### コマンドを実行する
+
+`subprocess.check_output`を使用する。
+
+引数に実行したいコマンドを与える。失敗時には例外が発生。
+
+```
+result = subprocess.check_output(['ls', '-la', 'directory_name'])
+print (result)
+```
+
+### 特定のディレクトリにあるモジュールをインポート
+
+例えば`libs/util.py`のクラス`Util`をインポートしたい場合は
+
+```
+from libs.util import Util
+```
+
+でいける。
+
+注意点として、`libs`ディレクトリに`__init__.py`が存在しないと駄目。また、`__init__.py`をおいていると実行時に`~.pyc`ファイルが生成されるので、`.gitignore`で`*.pyc`を記述しておいて管理しないようにしておくといい。
+
+## 疑問点
+
+### subprocess.check_outputにおける引数の文字列の扱い
+
+```
+# youtube-dl "https://www.youtube.com/watch?v=N5FC_qDZeJY"
+# ってコマンドは正常に動くが
+
+# こちらは動かない
+result = subprocess.check_output([
+    'youtube-dl',
+    '"https://www.youtube.com/watch?v=N5FC_qDZeJY"'
+])
+
+# ダブルクォーテーション外したら動く
+result = subprocess.check_output([
+    'youtube-dl',
+    'https://www.youtube.com/watch?v=N5FC_qDZeJY'
+])
 ```
