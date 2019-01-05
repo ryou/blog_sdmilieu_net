@@ -67,3 +67,62 @@ docker container run -p 3306:3306 -e MYSQL_ROOT_PASSWORD=[好きなパスワー�
 # パスワード：入力したパスワード
 # で接続出来る。
 ```
+
+### 公式PHPイメージを使ってPHP開発環境を構築
+
+公式の[Apache without a `Dockerfile`](https://hub.docker.com/_/php/)に書いてあるとおりやれば出来る。
+
+```
+docker container run -d -p 8080:80 --name my-apache-php-app -v "$PWD":/var/www/html php:7.2.13-apache
+```
+
+### ざっくりLAMP環境
+
+#### `Dockerfile`
+
+```
+FROM php:7.2.13-apache
+RUN apt-get update && \
+  docker-php-ext-install pdo_mysql
+```
+
+`RUN`部分に関しては理解していないので、調べないといけない
+
+#### `docker-compose.yml`
+
+```
+version: "3"
+services:
+  server:
+    build: .
+    ports:
+      - 8080:80
+    volumes:
+      - ./public:/var/www/html
+    links:
+      - db
+  db:
+    image: mysql:5.7
+    ports:
+      - 3306:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=secret
+```
+
+`links`に`db`を指定することで、`db`でデータベースへの名前解決が出来るようになる。
+
+#### `public/index.php`
+
+```
+<?php
+
+$pdo = new PDO(
+    'mysql:dbname=dockertest;host=db;charset=utf8mb4',
+    'root',
+    'secret',
+    [
+        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+    ]
+);
+```
