@@ -126,3 +126,24 @@ $pdo = new PDO(
     ]
 );
 ```
+
+
+### アプリケーションコードをイメージ内に入れる場合、開発環境では`docker container run`時に`-v`オプションを指定
+
+例えば、Dockerfileに
+
+```
+FROM php:7.2.13-apache
+
+COPY html /var/www/html
+```
+
+とした場合、`html`ディレクトリ内のアプリケーションコードがドキュメントルートに配置される。
+
+開発時にはホスト端末のコードを適用したいため、この場合は
+
+```
+docker container run -p 8080:80 -v "$PWD/html":/var/www/html [イメージ名]
+```
+
+って感じでやればいける。一般的な方法かどうかはしらない。
