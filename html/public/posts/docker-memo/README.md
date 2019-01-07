@@ -147,3 +147,9 @@ docker container run -p 8080:80 -v "$PWD/html":/var/www/html [イメージ名]
 ```
 
 って感じでやればいける。一般的な方法かどうかはしらない。
+
+### `docker-compose`使用時に、環境特有の設定を加えたい
+
+`docker-compose.override.yml`ファイルを作成すればいい。
+
+[サービスの拡張と Compose ファイル — Docker-docs-ja 17.06.Beta ドキュメント](http://docs.docker.jp/compose/extends.html)
