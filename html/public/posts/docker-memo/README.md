@@ -1,5 +1,15 @@
 # Dockerに関する覚書
 
+## インストール
+
+AWSの場合は以下の方法でインストール
+
+[Amazon ECS における Docker の基本 - Amazon Elastic Container Service](https://docs.aws.amazon.com/ja_jp/AmazonECS/latest/developerguide/docker-basics.html)
+
+Macの場合は`Docker for Mac`を入れれば`docker-compose`も含めてインストールされた気がするが、AWSで`docker-compose`を使いたい場合は以下の方法でインストールする必要があるので注意。
+
+[Install Docker Compose | Docker Documentation](https://docs.docker.com/compose/install/)
+
 ## コマンド
 
 ### image系
