@@ -163,3 +163,14 @@ docker container run -p 8080:80 -v "$PWD/html":/var/www/html [イメージ名]
 `docker-compose.override.yml`ファイルを作成すればいい。
 
 [サービスの拡張と Compose ファイル — Docker-docs-ja 17.06.Beta ドキュメント](http://docs.docker.jp/compose/extends.html)
+
+### 公式の`php:7.2.13-apache`とかでmod_rewriteを使いたい場合
+
+こんな感じにDockerfileに書いて、mod_rewriteを有効化する必要がある。
+
+```
+RUN cd /etc/apache2/mods-enabled \
+    && ln -s ../mods-available/rewrite.load
+```
+
+[DockerでLaravel+PHP5.6+MySQL5.6+Apacheの環境構築 - Qiita](https://qiita.com/eidera/items/19decbfc290b4776cfc3)
