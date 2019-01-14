@@ -143,3 +143,30 @@ php artisan ide-helper:generate
 php artisan ide-helper:models --dir="app/Models"
 ```
 
+#### Fluentクラスの補完
+
+さらに、Fluentクラスの補完をきくようにするには以下の作業
+
+```
+ex: Fluentは例えばマイグレーションファイルで
+    $table->foreign('type_id')->references('id')->on('types');
+    みたいなことをする際にforeignが返すクラス
+```
+
+まず、`config/ide-helper.php`が無ければ生成
+
+```
+php artisan vendor:publish --provider="Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider" --tag=config
+```
+
+`config/ide-helper.php`にて以下のように変更
+
+```
+'include_fluent' => true,
+```
+
+で、再ジェネレート
+
+```
+php artisan ide-helper:generate
+```
