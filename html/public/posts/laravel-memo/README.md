@@ -145,6 +145,12 @@ public function rules()
 ```
 
 
+## マイグレーションファイルでカラムの変更をしたい
+
+[公式の「カラム属性の変更」を参照](https://readouble.com/laravel/5.6/ja/migrations.html)
+
+
+
 ## .htaccessを使用せず常時SSL化対応
 
 Middlewareで対応
