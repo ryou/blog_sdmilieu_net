@@ -1,223 +1,83 @@
-@charset 'UTF-8';
+@charset "UTF-8";
 /***********************************************************************
 base rule
 **********************************************************************/
 /* reset
 ----------------------------------------------------------------------*/
-html,
-body,
-div,
-span,
-object,
-iframe,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-blockquote,
-pre,
-abbr,
-address,
-cite,
-code,
-del,
-dfn,
-em,
-img,
-ins,
-kbd,
-q,
-samp,
-small,
-strong,
-sub,
-sup,
-var,
-b,
-i,
-dl,
-dt,
-dd,
-ol,
-ul,
-li,
-fieldset,
-form,
-label,
-legend,
-table,
-caption,
-tbody,
-tfoot,
-thead,
-tr,
-th,
-td,
-article,
-aside,
-canvas,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-menu,
-nav,
-section,
-summary,
-time,
-mark,
-audio,
-video
-{
-    margin: 0;
-    padding: 0;
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote,
+pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small,
+strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label,
+legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas,
+details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  border: 0;
+  background: transparent;
+  vertical-align: baseline; }
 
-    vertical-align: baseline; 
+html {
+  height: 100%;
+  font-size: 62.5%; }
 
-    border: 0;
-    outline: 0;
-    background: transparent;
-}
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav,
+main, section {
+  display: block; }
 
-html
-{
-    font-size: 62.5%; 
+body {
+  color: #333333;
+  letter-spacing: 0;
+  font-size: 1.6rem;
+  font-family: 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', 'メイリオ', 'Meiryo', Osaka, sans-serif;
+  line-height: 1.6;
+  -webkit-text-size-adjust: 100%;
+  overflow-y: scroll; }
 
-    height: 100%;
-}
+h1, h2, h3, h4, h5, h6, p, td, th, address {
+  font-weight: normal;
+  font-size: 100%; }
 
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-menu,
-nav,
-main,
-section
-{
-    display: block;
-}
+ol, ul {
+  list-style: none; }
 
-body
-{
-    font-family: 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', 'メイリオ', 'Meiryo', Osaka, sans-serif;
-    font-size: 1.6rem;
-    line-height: 1.6;
+fieldset, img {
+  border: 0; }
 
-    overflow-y: scroll; 
+img {
+  vertical-align: top; }
 
-    letter-spacing: 0;
+table {
+  width: 100%;
+  border: 0;
+  border-spacing: 0;
+  border-collapse: collapse; }
 
-    color: #333;
+th, td {
+  vertical-align: top;
+  text-align: left; }
 
-    -webkit-text-size-adjust: 100%;
-}
+caption, th {
+  text-align: left; }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-td,
-th,
-address
-{
-    font-size: 100%; 
-    font-weight: normal;
-}
+address, caption, cite, code, dfn, em, th, var {
+  font-weight: normal;
+  font-style: normal; }
 
-ol,
-ul
-{
-    list-style: none;
-}
-
-fieldset,
-img
-{
-    border: 0;
-}
-
-img
-{
-    vertical-align: top;
-}
-
-table
-{
-    width: 100%;
-
-    border-spacing: 0;
-    border-collapse: collapse; 
-
-    border: 0;
-}
-
-th,
-td
-{
-    text-align: left; 
-    vertical-align: top;
-}
-
-caption,
-th
-{
-    text-align: left;
-}
-
-address,
-caption,
-cite,
-code,
-dfn,
-em,
-th,
-var
-{
-    font-weight: normal;
-    font-style: normal;
-}
-
-sup
-{
-    font-size: 62.5%; 
-
-    vertical-align: text-top;
-}
+sup {
+  vertical-align: text-top;
+  font-size: 62.5%; }
 
 input,
-textarea
-{
-    font-family: inherit;
-}
+textarea {
+  font-family: inherit; }
 
-code
-{
-    font-family: Osaka-mono, monospace, sans-serif;
-}
+code {
+  font-family: Osaka-mono, monospace, sans-serif; }
 
 /* link
 ----------------------------------------------------------------------*/
-a
-{
-    color: inherit;
-}
-a:link,
-a:visited,
-a:hover,
-a:active
-{
-    text-decoration: none;
-}
+a {
+  color: inherit; }
+  a:link, a:visited, a:hover, a:active {
+    text-decoration: none; }

@@ -4,22 +4,16 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "gulp": "gulp"
+    "build:scss": "node-sass -o ./public/assets/css --include-path ./sass_imports ./src/assets/css",
+    "watch:scss": "nodemon -e scss -x \"npm run build:scss\"",
+    "bs": "browser-sync start -s ./public --files ./public/assets/css",
+    "start": "npm run watch:scss & npm run bs"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "browser-sync": "^2.10.0",
-    "del": "^2.2.1",
-    "gulp": "^3.8.11",
-    "gulp-autoprefixer": "^3.1.0",
-    "gulp-csscomb": "^3.0.3",
-    "gulp-imagemin": "^2.4.0",
-    "gulp-notify": "^2.2.0",
-    "gulp-plumber": "^1.0.0",
-    "gulp-rename": "^1.2.2",
-    "gulp-sass": "^3.1.0",
-    "gulp-watch": "^4.3.5",
-    "imagemin-pngquant": "^4.2.0"
+    "browser-sync": "^2.26.3",
+    "node-sass": "^4.11.0",
+    "nodemon": "^1.18.9"
   }
 }
