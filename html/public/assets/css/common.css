@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /***********************************************************************
 layout rule
 **********************************************************************/
@@ -163,6 +164,7 @@ module rule
   margin: 0; }
 
 .m-article .m-article_content code {
+  font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", Osaka, sans-serif;
   background: #f6f8fa;
   padding: 0.3rem; }
 
