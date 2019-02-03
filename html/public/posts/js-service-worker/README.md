@@ -2,7 +2,7 @@
 
 ## 使用する場合の前提条件
 
-HTTPもしくはlocalhost
+HTTPSもしくはlocalhost
 
 ## ServiceWorkerのバージョンアップ
 
