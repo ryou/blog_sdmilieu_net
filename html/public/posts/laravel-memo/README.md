@@ -156,3 +156,30 @@ public function rules()
 Middlewareで対応
 
 [Laravel5で.htaccessを使用せず常時SSL化対応する方法](https://qiita.com/qwe001/items/7cd0bcb149b5b5cc0fd7)
+
+
+
+## テスト関連
+
+### 現在時刻を任意の値にしたい
+
+テスト対象の関数内で`Carbon::now()`とか使っていた時、テスト毎に状態が変化してしまい微妙。
+
+なので、テスト中に現在時刻を任意の値にするために、[`Carbon::setTestNow()`](https://carbon.nesbot.com/docs/#api-testing)を使用する。
+
+
+### testから始まらない関数をテスト関数として認識させたい
+
+`@test`と関数の直前に記述すればいい。
+
+```
+/*
+ * @test
+ */
+public function 有効期限が正常に判定されていることの確認()
+{
+  ~
+}
+```
+
+ちなみに、テストの関数名は日本語にしておくとわかりやすい。
