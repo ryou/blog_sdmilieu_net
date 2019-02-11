@@ -1,6 +1,8 @@
 # LaravelをHerokuにデプロイ（Laravel mix使用かつGitHub経由）
 
 
+最近Herokuの活用事例を聞いて試してみたくなったので試した。そのメモ。
+
 ## 手順
 
 + GitHubリポジトリの準備
